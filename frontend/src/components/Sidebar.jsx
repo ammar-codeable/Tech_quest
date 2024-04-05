@@ -1,4 +1,4 @@
-import { HiChartPie, HiTable } from "react-icons/hi";
+import { HiChartPie, HiTable, HiChat } from "react-icons/hi";
 import { DarkThemeToggle, Sidebar } from "flowbite-react";
 
 export default function TSidebar() {
@@ -9,6 +9,9 @@ export default function TSidebar() {
           <Sidebar.ItemGroup>
             <Sidebar.Item href="/dashboard" icon={HiChartPie}>
               Dashboard
+            </Sidebar.Item>
+            <Sidebar.Item href="/chat" icon={HiChat}>
+              Chat
             </Sidebar.Item>
             <Sidebar.Item href="#" icon={HiTable}>
               Sign Out
