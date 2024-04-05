@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const schema = mongoose.Schema;
 const UsersSchema = new schema({
-  id: {
+  userId: {
     type: String,
     required: true,
   },
@@ -10,6 +10,10 @@ const UsersSchema = new schema({
     type: String,
     required : false,
   },
+  role:{
+    type: String,
+    default:"user",
+  }
   
 });
 

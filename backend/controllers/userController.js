@@ -1,25 +1,30 @@
-import Users from '../models/userSchema.js'
+import Users from '../models/userSchema.js';
 
-
-
-async function pushUser(req,res){
-    try{
-        const userId = req.body.id;
-        console.log(userId);
-        const dbUser = await Users.findOne({id:userId});
-        if(!dbUser){
-            const user = await Users.create({id : userId});
-            await user.save();
-            return res.json({success : true, msg : "New User registered"});
-        }
-        else{
-           return res.json({msg : "already registerd"})
-        }
+async function pushUser(req, res) {
+    try {
+        const userId = req.body.userId;
         
-    }catch(e){
+        
+        if (!userId) {
+            return res.json({ success: false, msg: "UserId is missing in the request body." });
+        }
+
+        const dbUser = await Users.findOne({ userId });
+        
+        
+        if (dbUser) {    
+            
+           
+            return res.json({ success: false, msg: "User already registered" });
+        } else {
+            const newUser = new Users({ userId });
+            await newUser.save();
+            return res.json({ success: true, msg: "New User registered" });
+        }
+    } catch (e) {
         console.log(e);
-        res.json({success : false , msg : "Unable to parse the body parameters."});
+        res.json({ success: false , msg: "Internal server error." });
     }
 }
 
-export {pushUser};
+export { pushUser };
