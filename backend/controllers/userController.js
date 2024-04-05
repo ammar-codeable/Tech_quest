@@ -34,4 +34,28 @@ async function getUsers(req,res){
         console.log(error);
     }
 }
-export { pushUser,getUsers };
+async function getReport(req,res){
+    try{
+        const user= await Users.findOne({userId:req.params.id})
+        console.log(user);
+        if(!user){
+            res.json({success:false,message:"no user found"})
+        }
+        else{
+            const report=user.report;
+            if(!report){
+            res.json({success:false,message:"no report of that user"})
+            }
+            else{
+                res.json({success:true,report});
+            }
+        }
+    }
+    catch(error){
+        console.log(error);
+        res.json({success:false,message:"error"});
+    }
+
+}
+
+export { pushUser,getUsers,getReport };
