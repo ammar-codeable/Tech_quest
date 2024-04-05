@@ -2,6 +2,8 @@
 
 import { DarkThemeToggle, Navbar } from "flowbite-react";
 import SignInButton from "./SignInButton";
+import { Link } from "react-router-dom";
+import { Button } from "flowbite-react";
 
 export default function TNavbar() {
   return (
@@ -18,6 +20,11 @@ export default function TNavbar() {
       </Navbar.Brand>
       <div className="flex md:order-2">
         <DarkThemeToggle className="mr-4 border border-gray-300 border-opacity-50" />
+        <Link to="/dashboard">
+          <div className="flex flex-wrap gap-2 mr-5">
+            <Button color="dark">Dashboard</Button>
+          </div>
+        </Link>
         <SignInButton />
       </div>
     </Navbar>

@@ -8,8 +8,6 @@ if (!PUBLISHABLE_KEY) {
 }
 
 export default function RootLayout() {
-  const navigate = useNavigate();
-
   return (
     <>
       <Navbar />
