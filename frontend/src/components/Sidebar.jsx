@@ -1,5 +1,5 @@
-import { HiChartPie, HiTable, HiChat } from "react-icons/hi";
-import { DarkThemeToggle, Sidebar } from "flowbite-react";
+import { HiChartPie, HiTable, HiChat, HiLockClosed } from "react-icons/hi";
+import { DarkThemeToggle, Sidebar, SidebarItem } from "flowbite-react";
 
 export default function TSidebar() {
   return (
@@ -7,9 +7,12 @@ export default function TSidebar() {
       <Sidebar aria-label="Default sidebar example" rounded>
         <Sidebar.Items>
           <Sidebar.ItemGroup>
-            <Sidebar.Item href="/dashboard" icon={HiChartPie}>
-              Dashboard
-            </Sidebar.Item>
+            <div className="flex">
+              <Sidebar.Item href="/dashboard" icon={HiChartPie}>
+                Dashboard
+              </Sidebar.Item>
+              <Sidebar.Item icon={HiLockClosed} align="right"/>
+            </div>
             <Sidebar.Item href="/chat" icon={HiChat}>
               Chat
             </Sidebar.Item>

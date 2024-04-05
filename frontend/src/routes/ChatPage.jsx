@@ -30,10 +30,10 @@ export default function Dashboard() {
 
   return (
     <div className="bg-gray-900 min-h-screen m-0 p-0">
-      <div className="flex"> 
+      <div className="flex justify-center items-end w-full h-full"> 
         <Sidebar />
-        <ChatInput />
+          <ChatInput />
+        </div>
       </div>
-    </div>
   );
 }

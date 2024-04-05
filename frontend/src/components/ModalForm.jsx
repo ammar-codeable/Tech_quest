@@ -1,5 +1,11 @@
+
+
 export default function ModalForm({ isOpen, onClose }) {
   const modalClass = isOpen ? "flex" : "hidden";
+
+  const submitHandler = (event) => { 
+    console.log(event.target.name.value)
+  }
 
   return (
     <>
@@ -43,7 +49,7 @@ export default function ModalForm({ isOpen, onClose }) {
                 <span className="sr-only">Close modal</span>
               </button>
             </div>
-            <form className="p-4 md:p-5">
+            <form className="p-4 md:p-5" onSubmit={submitHandler}>
               <div className="grid gap-4 mb-4 grid-cols-2">
                 <div className="col-span-2">
                   <label
