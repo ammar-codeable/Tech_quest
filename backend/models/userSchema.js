@@ -2,13 +2,13 @@ import mongoose from "mongoose";
 
 const schema = mongoose.Schema;
 const UsersSchema = new schema({
-  ID: {
+  id: {
     type: String,
     required: true,
   },
-  Report: {
+  report: {
     type: String,
-    required: false,
+    required : false,
   },
   
 });
