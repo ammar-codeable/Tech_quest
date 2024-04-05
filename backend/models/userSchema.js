@@ -8,11 +8,13 @@ const UsersSchema = new schema({
   },
   report: {
     type: String,
-    required : false,
   },
   role:{
     type: String,
     default:"user",
+  },
+  name:{
+    type:String
   }
   
 });

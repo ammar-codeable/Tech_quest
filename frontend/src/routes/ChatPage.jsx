@@ -16,7 +16,7 @@ export default function Dashboard() {
       navigate("/sign-in");
     } else if (isLoaded) {
       axios.post("http://localhost:3000/users/pushUser", {
-        userId: user.userId,
+        ...user
       });
     }
   }, [user, isLoaded]);

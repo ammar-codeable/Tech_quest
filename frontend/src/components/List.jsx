@@ -3,8 +3,28 @@
 
 import { Table } from "flowbite-react";
 import ListRow from "./ListRow";
+import { useEffect, useState } from "react";
+import { useUser } from "@clerk/clerk-react"
+import axios from "axios";
 
 export default function List() {
+  const [users, setUsers] = useState([])
+  const { isSignedIn, isLoaded, user } = useUser();
+  
+  useEffect(() => {
+    if (!isLoaded) return;
+    axios.get("http://localhost:3000/users/getUsers",{
+      headers: {
+        'userId' : user.userId
+      }
+    }).then((res)=>{
+      console.log(res.data.data);
+      setUsers(res.data.data)
+    })
+
+  },[isLoaded,isSignedIn, user])
+
+
   return (
     <div className="overflow-x-auto m-5">
       <Table hoverable>
@@ -18,9 +38,7 @@ export default function List() {
           </Table.HeadCell>
         </Table.Head>
         <Table.Body className="divide-y">
-          <ListRow id={1234} name={"hi"} age={21} category={"Critical"}/>
-          <ListRow id={1234} name={"hi"} age={21} category={"Critical"}/>
-          <ListRow id={1234} name={"hi"} age={21} category={"Critical"}/>
+          {users.length==0? <h1>Loading....</h1>:users.map((user) => <ListRow id={user.userId} />)}
         </Table.Body>
       </Table>
     </div>
