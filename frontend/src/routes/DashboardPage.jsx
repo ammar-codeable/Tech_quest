@@ -38,14 +38,14 @@ export default function Dashboard() {
         <Sidebar />
         <div className="flex-col">
           <div className="flex">
-            <SearchBar />
-            <button
+            {/* <SearchBar /> */}
+            {/* <button
               onClick={() => setIsModalOpen(true)}
               className="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-6 mb-1 pl-5 pr-5"
               type="button"
             >
               +
-            </button>
+            </button> */}
             <ModalForm
               isOpen={isModalOpen}
               onClose={() => setIsModalOpen(false)}

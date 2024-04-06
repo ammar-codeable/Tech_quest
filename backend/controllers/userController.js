@@ -23,7 +23,7 @@ async function pushUser(req, res) {
 }
 async function getUsers(req,res){
     try{
-        const data=await Users.find(P);
+        const data=await Users.find();
         if(!data){
             res.json({success:false,message:"no users found"});
         }

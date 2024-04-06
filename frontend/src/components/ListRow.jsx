@@ -59,8 +59,6 @@ export default function ListRow({ category, id, name, age }) {
         {id}
       </Table.Cell>
       <Table.Cell>{name}</Table.Cell>
-      <Table.Cell>{category}</Table.Cell>
-      <Table.Cell>{age}</Table.Cell>
       <Table.Cell>
         <div>
           <Button
@@ -69,7 +67,7 @@ export default function ListRow({ category, id, name, age }) {
             tabIndex={-1}
             startIcon={<CloudUploadIcon />}
           >
-            Upload file
+            {reportBot}
             <VisuallyHiddenInput
               type="file"
               onChange={handleFileChange}

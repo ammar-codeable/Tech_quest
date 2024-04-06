@@ -10,19 +10,16 @@ import axios from "axios";
 export default function List() {
   const [users, setUsers] = useState([])
   const { isSignedIn, isLoaded, user } = useUser();
-  
+
   useEffect(() => {
     if (!isLoaded) return;
-    axios.get("http://localhost:3000/users/getUsers",{
-      headers: {
-        'userId' : user.userId
-      }
-    }).then((res)=>{
-      console.log(res.data.data);
+    axios.get("http://localhost:3000/users/getUsers", {
+    }).then((res) => {
       setUsers(res.data.data)
+      console.log(res.data.data);
     })
 
-  },[isLoaded,isSignedIn, user])
+  }, [isLoaded, isSignedIn, user])
 
 
   return (
@@ -31,14 +28,12 @@ export default function List() {
         <Table.Head>
           <Table.HeadCell>Patient Id</Table.HeadCell>
           <Table.HeadCell>Patient Name</Table.HeadCell>
-          <Table.HeadCell>Category</Table.HeadCell>
-          <Table.HeadCell>Age</Table.HeadCell>
           <Table.HeadCell>
             <span className="sr-only">Edit</span>
           </Table.HeadCell>
         </Table.Head>
         <Table.Body className="divide-y">
-          {users.length==0? <h1>Loading....</h1>:users.map((user) => <ListRow id={user.userId} />)}
+          {users.length == 0 ? <h1>Loading....</h1> : users.map((user) => <ListRow id={user.userId} name={user.name}/>)}
         </Table.Body>
       </Table>
     </div>

@@ -4,7 +4,7 @@ import isDoctor from '../middlewares/checkuser.js';
 
 const userRoutes =express.Router();
 userRoutes.post('/pushUser',pushUser);
-userRoutes.get('/getUsers',isDoctor,getUsers);
+userRoutes.get('/getUsers',getUsers);
 userRoutes.get('/getReport/:id',isDoctor,getReport);
 
 export default userRoutes;
